@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<div th:include="home_admin::header"></div>
+
+<body>
+<div th:include="home_admin.html::header_nav"></div>
+
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">
+    Spring eCommerce <small>Productos</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">Ver Productos</li>
+  </ol>
+
+  <a class="btn btn-primary" th:href="@{/agregarproducto}">Agregar Producto</a>
+  <h2>Productos</h2>
+  <table class="table" id="tabla_productos">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Acción</th>
+        <th scope="col">Acción</th>
+      </tr>
+      <tr th:each="prod:${productos}">
+        <td th:text="${prod.id}"></td>
+        <td th:text="${prod.nombre}"></td>
+        <td th:text="${prod.descripcion}"></td>
+        <td th:text="${prod.precio}"></td>
+        <td th:text="${prod.stock}"></td>
+        <td th:text="${prod.imagen}"></td>
+        <td><a class="btn btn-warning" th:href="@{/editarproducto/{id} (id=${prod.id}) }">Editar</a></td>
+        <td><a class="btn btn-danger" th:href="@{api/eliminarproducto/{id} (id=${prod.id}) }">Eliminar</a></td>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+</div>
+<!-- /.container -->
+
+<div th:include="home_admin.html::footer"></div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
