@@ -1,6 +1,7 @@
 package com.springboot.ecommerce.Controller;
 
 import com.springboot.ecommerce.Service.ProductoServiceInt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +15,12 @@ import java.util.List;
 
 @Controller
 public class AdministradorController {
-    private ProductoServiceInt prodServ;
+    @Autowired
+    private ProductoServiceInt prodService;
+
     @GetMapping (value = "/home")
     public String home(Model model) {
+        model.addAttribute("productos", prodService.listar());
 
         return "home.html";
     }

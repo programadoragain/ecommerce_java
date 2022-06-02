@@ -65,13 +65,14 @@ public class ProductoController {
             p.setImagen(nombreImagen);
         }
         else
-        {
-            if (!nombreImagen.equals("imagendefault.jpg")) {
-                upImg.eliminarImagen(nombreImagen);
+            {
+                if (!nombreImagen.equals("imagendefault.jpg")) {
+                    upImg.eliminarImagen(nombreImagen);
+                }
+                p.setImagen(upImg.guardarImagen(imagen));
             }
-            p.setImagen(upImg.guardarImagen(imagen));
-        }
 
+        p.setUsuario(prodService.buscar((p.getId())).getUsuario()); // ó hacer un input invisible y guardar el dato al cargar la pagina editar
         prodService.guardar(p);
         return "redirect:/mostrarproductos";
     }

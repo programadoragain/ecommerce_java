@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 
-<div th:include="home_admin::header"></div>
+<div th:include="home_admin.html::header"></div>
 
 <body>
 <div th:include="home_admin.html::header_nav"></div>
 
     <!-- Page Content -->
     <div class="container">
-
-      <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">
-        Spring eCommerce <small>Productos</small>
-      </h1>
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -69,12 +64,7 @@
     </div>
     <!-- /.container -->
 
-    <div th:include="home_admin.html::footer"></div>
-
-
-<!-- Bootstrap core JavaScript -->
-<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<div th:include="home_admin.html::footer"></div>
 
 </body>
 </html>
